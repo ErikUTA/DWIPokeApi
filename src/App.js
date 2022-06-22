@@ -113,8 +113,8 @@ function App() {
                   <button className='btn-right' onClick={() => {setNumberOne(numberOne + 10); setNumberTwo(numberTwo + 10);}}></button>  
                 </div>
                 <div className='center-a'>
-                  <button className='golden' onClick={(e) => {setShiny(!shiny)}}></button>
-                  <button className='change' onClick={(e) => {setSide(!side)}}></button>
+                  <button className='golden' onClick={() => {setShiny(!shiny)}}></button>
+                  <button className='change' onClick={() => {setSide(!side)}}></button>
                 </div>
                 <div className='center-a'>
                   <button className='btn-info' ref={message} onClick={handleChange}>
