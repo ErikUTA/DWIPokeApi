@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 const App = () => {
 
   const [pokemons, setPokemons] = useState([]);
+  const [page, setPage] = useState();
+  const [total, setTotal] = useState();
 
   const fetchPokemones = async () => {
     try {
@@ -19,6 +21,7 @@ const App = () => {
       })
       const results = await Promise.all(promises)
       setPokemons(results)
+      setTotal(Math.ceil(data.count/25))
     } catch (err){
 
     }
@@ -32,7 +35,7 @@ const App = () => {
 
     <div className='container'> 
 
-      <Pokedex pokemons={pokemons}/>
+      <Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total}/>
     </div>
   )
 }
