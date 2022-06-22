@@ -109,8 +109,8 @@ function App() {
                   </TransitionGroup>
                 </div>
                 <div className='center-a'>
-                  <button className='btn-left' onClick={() => {setNumberOne(numberOne - 10); setNumberTwo(numberTwo - 10);}}></button>
-                  <button className='btn-right' onClick={() => {setNumberOne(numberOne + 10); setNumberTwo(numberTwo + 10);}}></button>  
+                  <button className='btn-left' onClick={(e) => {setNumberOne(numberOne - 10); setNumberTwo(numberTwo - 10);}}></button>
+                  <button className='btn-right' onClick={(e) => {setNumberOne(numberOne + 10); setNumberTwo(numberTwo + 10);}}></button>  
                 </div>
                 <div className='center-a'>
                   <button className='golden' onClick={() => {setShiny(!shiny)}}></button>
