@@ -9,19 +9,19 @@ import { useEffect, useState } from "react";
 const App = () => {
 
   const [pokemons, setPokemons] = useState([]);
-  const [page, setPage] = useState();
-  const [total, setTotal] = useState();
+  const [page, setPage] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const fetchPokemones = async () => {
     try {
-      const data = await getPokemones();
+      const data = await getPokemones(10, 10 * page);
       // setPokemons(data.results);
       const promises = data.results.map( async (pokemon) => {
         return await getPokemonesData(pokemon.url)
       })
       const results = await Promise.all(promises)
       setPokemons(results)
-      setTotal(Math.ceil(data.count/25))
+      setTotal(Math.ceil(data.count/10))
     } catch (err){
 
     }
@@ -29,11 +29,11 @@ const App = () => {
 
   useEffect(() => {
     fetchPokemones();
-  }, []);
+  }, [page]);
 
   return (
 
-    <div className='container'> 
+    <div className='App'> 
 
       <Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total}/>
     </div>

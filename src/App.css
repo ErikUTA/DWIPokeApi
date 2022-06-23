@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url(./images/backPokemon2.jpg);
+  /* background-image: url(./images/backgroundPokemon.gif); */
+  /* background-repeat: no-repeat;  */
+  /* background-position: center center; */
 }
 
 .Pokemones {
@@ -11,6 +15,12 @@
 }
 
 /* /////////// */
+
+.header {
+  background: rgba(0,0,0,0.8);    
+  color: whitesmoke;
+  padding: 10px;
+}
 
 .pokedex-grid {
   display: grid;
@@ -25,6 +35,7 @@
   /* border-radius: 3px; */
   width: 95%;
   margin: 20px;
+  background-color: whitesmoke;
 
 }
 
@@ -54,8 +65,49 @@
 .pokemon-type-text {
   margin-right: 10px;
   text-transform: capitalize;
+  /* border-style: ; */
+  background-image: linear-gradient(to right, rgb(183, 67, 179), rgb(226, 226, 61), rgb(97, 151, 222) );
+  border-radius: 4px;
+  margin-top: 5px;
 }
 
 .pagination {
+  
+}
+
+.btn-anterior {
+  /* background-color: rgb(79, 79, 175); */
+  /* padding: 20px ; */
+  border: solid 2px rgb(101, 159, 213);
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-anterior:hover {
+  background-color: rgb(101, 159, 213);
+  width: 100px;
+  height: 30px;
+}
+
+.btn-siguiente {
+  /* background-color: rgb(79, 79, 175); */
+  /* padding: 20px ; */
+  border: solid 2px rgb(83, 215, 94);
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.btn-siguiente:hover {
+  background-color: rgb(83, 215, 94);
+  width: 100px;
+  height: 30px;
+}
+
+.paginas {
+  color: yellow;
+  /* width: 50%; */
   
 }

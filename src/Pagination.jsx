@@ -6,13 +6,13 @@ const Pagination = (props) => {
 
     return (
         <div className="pagination">
-            <button onClick={onAnteriorClick}>
+            <button onClick={onAnteriorClick} className="btn-anterior">
                 <div>Anterior</div>
             </button>
 
-            <div>{page} de {totalPages}</div>
-            
-            <button onClick={onSiguienteClick}>
+            <div className="paginas"><h2>{page} de {totalPages}</h2></div>
+
+            <button onClick={onSiguienteClick} className="btn-siguiente">
                 <div>Siguiente</div>
             </button>
         </div>
