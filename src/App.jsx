@@ -21,10 +21,8 @@ const App = () => {
       })
       const results = await Promise.all(promises)
       setPokemons(results)
-      setTotal(Math.ceil(data.count/10))
-    } catch (err){
-
-    }
+      setTotal(Math.ceil(data.count/ 10))
+    } catch (err) {}
   }
 
   useEffect(() => {

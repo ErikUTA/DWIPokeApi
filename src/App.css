@@ -36,7 +36,6 @@
   width: 95%;
   margin: 20px;
   background-color: whitesmoke;
-
 }
 
 .pokemon-img {
@@ -59,6 +58,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* text-align: center; */
   /* align-items: center; */
 }
 
@@ -72,42 +72,47 @@
 }
 
 .pagination {
-  
+  background: rgba(0,0,0,0.8);    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
 }
 
 .btn-anterior {
   /* background-color: rgb(79, 79, 175); */
   /* padding: 20px ; */
   border: solid 2px rgb(101, 159, 213);
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 35px;
   cursor: pointer;
   margin-top: 10px;
 }
 
 .btn-anterior:hover {
-  background-color: rgb(101, 159, 213);
-  width: 100px;
-  height: 30px;
+  background-image: linear-gradient( rgb(54, 105, 173), rgb(127, 137, 152));
+  width: 150px;
+  height: 35px;
 }
 
 .btn-siguiente {
   /* background-color: rgb(79, 79, 175); */
   /* padding: 20px ; */
   border: solid 2px rgb(83, 215, 94);
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 35px;
   cursor: pointer;
 }
 
 .btn-siguiente:hover {
-  background-color: rgb(83, 215, 94);
-  width: 100px;
-  height: 30px;
+  background-image: linear-gradient( rgb(118, 149, 123), rgb(53, 188, 60) );
+  width: 150px;
+  height: 35px;
 }
 
 .paginas {
-  color: yellow;
+  color: rgb(26, 255, 0);
   /* width: 50%; */
   
 }

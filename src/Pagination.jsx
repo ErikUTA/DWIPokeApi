@@ -2,7 +2,7 @@ import React from "react";
 
 const Pagination = (props) => {
 
-    const{onAnteriorClick, onSiguienteClick, page, totalPages} = props;
+    const {onAnteriorClick, onSiguienteClick, page, totalPages} = props;
 
     return (
         <div className="pagination">
