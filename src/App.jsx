@@ -1,10 +1,12 @@
 import './App.css';
 import React from "react";
-import Pokedex from './Pokedex';
+import Pokedex from './components/Pokedex';
 import { getPokemones, getPokemonesData } from './Api';
-import { useEffect, useState } from "react";
 
-// const [useEffect, useState] = React;
+// GlobalContext:
+import { useEffect, useState } from "react";
+import { GlobalContext } from './context/global/global.context';
+
 
 const App = () => {
 
