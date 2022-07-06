@@ -1,11 +1,12 @@
 import './App.css';
 import React from "react";
 import Pokedex from './components/Pokedex';
-import { getPokemones, getPokemonesData } from './Api';
+import { getPokemones, getPokemonesData, searchPokemon } from './Api';
+import Search from './components/Search';
 
 // GlobalContext:
 import { useEffect, useState } from "react";
-import { GlobalContext } from './context/global/global.context';
+//import { GlobalContext } from './context/global/global.context';
 
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
+  const [notFound, setNotFound] = useState(false);
+  const [searching, setSearching] = useState(false);
 
   const fetchPokemones = async () => {
     try {
@@ -28,14 +31,35 @@ const App = () => {
   }
 
   useEffect(() => {
-    fetchPokemones();
+    if (!searching) {
+      fetchPokemones();
+    }
   }, [page]);
+
+  const onSearch = async (pokemon) => {
+    if (!pokemon) {
+      return fetchPokemones();
+    }
+    setNotFound(false);
+    setSearching(true);
+    const result = await searchPokemon(pokemon);
+    if (!result) {
+      setNotFound(true);
+      return;
+    } else {
+      setPokemons([result]);
+      setPage(0);
+      setTotal(1);
+    }
+    setSearching(false);
+  };
+
 
   return (
 
     <div className='App'> 
-
-      <Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total}/>
+      <Search onSearch={onSearch}/> {notFound ? (<div className="not-found-text"> No se encontró el Pokemon. </div>) : 
+      <Pokedex pokemons={pokemons} page={page} setPage={setPage} total={total}/> }
     </div>
   )
 }

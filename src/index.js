@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // GlobalProvider:
-import { GlobalProvider } from './context/global/global.context';
+// import { GlobalProvider } from './context/global/global.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,9 +17,9 @@ root.render(
     <BrowserRouter>
     {/* <App /> */}
     <Routes>
-      <GlobalProvider>
+      {/* <GlobalProvider> */}
     <Route path="/" element={<App />}></Route>
-    </GlobalProvider>
+    {/* </GlobalProvider> */}
     </Routes>
     </BrowserRouter>
 
