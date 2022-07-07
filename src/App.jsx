@@ -36,10 +36,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    console.log(filter.datosBusqueda);
-  }, [filter]);
-
-  useEffect(() => {
     if (!searching) {
       fetchPokemones();
     }

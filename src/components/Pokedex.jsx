@@ -25,7 +25,6 @@ const Pokedex = (props) => {
         }else{
             setArray(pokemons);
         }
-        console.log(array);
     }, [filterData]);
 
     const anteriorPagina = () => {
