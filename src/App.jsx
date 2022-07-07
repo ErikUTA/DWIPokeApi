@@ -3,14 +3,19 @@ import React from "react";
 import Pokedex from './components/Pokedex';
 import { getPokemones, getPokemonesData, searchPokemon } from './Api';
 import Search from './components/Search';
+import { FiltroConsumer, FiltroData, FiltroProvider } from './context/global/global.context';
 
 // GlobalContext:
 import { useEffect, useState } from "react";
 //import { GlobalContext } from './context/global/global.context';
 
+export default () => <FiltroProvider>
+  <FiltroConsumer />
+  <App />
+</FiltroProvider>
 
 const App = () => {
-
+  const filter = FiltroData();
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
@@ -29,6 +34,10 @@ const App = () => {
       setTotal(Math.ceil(data.count/ 10))
     } catch (err) {}
   }
+
+  useEffect(() => {
+    console.log(filter.datosBusqueda);
+  }, [filter]);
 
   useEffect(() => {
     if (!searching) {
@@ -63,5 +72,3 @@ const App = () => {
     </div>
   )
 }
-
-export default App;

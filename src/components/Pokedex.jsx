@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import Pokemon from "./Pokemon";
 // import Pokemones from "./Pokemones";
+import { FiltroData } from "../context/global/global.context";
 
 const Pokedex = (props) => {
-
+    const filterData = FiltroData();
     const {pokemons, page, setPage, total} = props;
+    const [array, setArray] = useState([]);
     // console.log(pokemons);
+
+    useEffect(() => {
+        setArray(pokemons);
+    }, [pokemons]);
+
+    useEffect(() => {
+        setArray([]);
+        if(array.length > 0) {
+            pokemons.filter((data) => {
+                if(data.name.toString().toLowerCase().includes(filterData.datosBusqueda)){
+                    setArray((current) => [...current, data]);  
+                }
+            });
+        }else{
+            setArray(pokemons);
+        }
+        console.log(array);
+    }, [filterData]);
 
     const anteriorPagina = () => {
         const siguientePagina = Math.max(page - 1, 0);
@@ -27,7 +47,7 @@ const Pokedex = (props) => {
             <div><Pagination page={page + 1} totalPages={total} onAnteriorClick={anteriorPagina} onSiguienteClick={siguientePagina}/></div>
             
             <div className="pokedex-grid">
-                {pokemons.map((pokemon, idx) => {
+                {array.slice(0, 10).map((pokemon, idx) => {
                     return (
                         // <div key={pokemon.name}>#{idx+1}: {pokemon.name}</div>
                         <Pokemon pokemon={pokemon} key={pokemon.name}/>

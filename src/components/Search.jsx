@@ -18,11 +18,11 @@ const Search = (props) => {
 
   return (
     <div className="search-container">
-      <div className="search">
+      {/* <div className="search">
         <input placeholder="Buscar pokemon..." onChange={onChange} />
-      </div>
+      </div> */}
       <div className="search-btn">
-        <button onClick={onClick}>Buscar</button>
+        {/* <button onClick={onClick}>Buscar</button> */}
       </div>
     </div>
   );
